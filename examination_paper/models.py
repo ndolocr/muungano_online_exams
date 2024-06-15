@@ -1,5 +1,8 @@
 from django.db import models
+
 from examination.models import Examination
+from instructions.models import Instructions
+
 # Create your models here.
 class ExaminationPaper(models.Model):
     year = models.IntegerField()
@@ -10,7 +13,7 @@ class ExaminationPaper(models.Model):
     subject = models.SlugField(max_length=255, null = True, blank = True)
     
     examination = models.ForeignKey(Examination, on_delete=models.CASCADE)
-    instructions = models.ForeignKey(Examination, on_delete=models.CASCADE)
+    instructions = models.ForeignKey(Instructions, on_delete=models.CASCADE)
     
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
