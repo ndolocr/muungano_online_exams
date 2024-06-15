@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class Instructions(models.Model):
+class Instruction(models.Model):
     instructions = models.TextField()
     instruction_number = models.IntegerField()
     
