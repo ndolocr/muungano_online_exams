@@ -14,10 +14,10 @@ class Question(models.Model):
     parent_question = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
 
     tags = models.ManyToManyField(Tag)
-    
+
     image = models.ForeignKey(Image, on_delete=models.CASCADE, null=True, blank=True)
     passage = models.ForeignKey(Passage, on_delete=models.CASCADE, null=True, blank=True)
-    examination_paper = models.ForeignKey(ExaminationPaper, on_delete=models.CASCADE, null=True, blank=True)
+    examination_paper = models.ForeignKey(ExaminationPaper, on_delete=models.CASCADE, null=False, blank=False)
 
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
