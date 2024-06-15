@@ -7,6 +7,7 @@ class Examination(models.Model):
     slug = models.SlugField(max_length=255, null = True, blank = True)
     name = models.CharField(max_length=255, null = False, blank = False)
     acronym = models.CharField(max_length=255, null = False, blank = False)
+    
     examination_body = models.ForeignKey(ExaminationBody, on_delete=models.CASCADE)
 
     updated_on = models.DateTimeField(auto_now=True)
