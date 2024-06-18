@@ -39,7 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Custom Apps
+    'tags',
+    'image',
+    'subject',
+    'paggase',
+    'question',
+    'examination',
+    'instructions',
+    'marking_scheme',
+    'multiple_choices',
     'examination_body',
+    'examination_paper',
 ]
 
 MIDDLEWARE = [
