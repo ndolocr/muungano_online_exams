@@ -2,6 +2,7 @@ from django.db import models
 
 from tags.models import Tag
 from image.models import Image
+from subject.models import Subject
 from passage.models import Passage
 from examination_paper.models import ExaminationPaper
 
@@ -14,6 +15,7 @@ class Question(models.Model):
     parent_question = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
 
     tags = models.ManyToManyField(Tag)
+    subjects = models.ManyToManyField(Subject)
 
     image = models.ForeignKey(Image, on_delete=models.CASCADE, null=True, blank=True)
     passage = models.ForeignKey(Passage, on_delete=models.CASCADE, null=True, blank=True)
