@@ -12,7 +12,6 @@ class Question(models.Model):
     question = models.TextField()
     marks = models.IntegerField()
     question_number = models.IntegerField()
-    parent_question = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
 
     tags = models.ManyToManyField(Tag)
     subjects = models.ManyToManyField(Subject)

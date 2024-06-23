@@ -1,5 +1,5 @@
 from django.db import models
-
+from question.models import Question
 # Create your models here.
 
 class MarkingScheme(models.Model):
@@ -9,3 +9,6 @@ class MarkingScheme(models.Model):
 
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.question
