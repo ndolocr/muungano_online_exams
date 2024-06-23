@@ -40,13 +40,15 @@ INSTALLED_APPS = [
 
     # Custom Apps
     'tags',
+    'table',
     'image',
     'subject',
     'passage',
     'question',
     'examination',
-    'instructions',
+    'instructions',    
     'marking_scheme',
+    'cell_information',
     'multiple_choices',
     'examination_body',
     'examination_paper',
