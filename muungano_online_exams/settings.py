@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'tags',
     'image',
     'subject',
-    'paggase',
+    'passage',
     'question',
     'examination',
     'instructions',
