@@ -26,7 +26,7 @@ def create_examination_body(request):
 
 def view_all_examination_body(request):
     try:
-        record = ExaminationBody.obejcts.all().order_by('-created_on')
+        record = ExaminationBody.objects.all().order_by('-created_on')
         context = {"record": record, "message": ""}
         return render(request, "examination_body/view_all.html", context)
     except ObjectDoesNotExist:
