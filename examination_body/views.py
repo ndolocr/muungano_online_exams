@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from django.utils.text import slugify 
+from django.utils.text import slugify
+from django.core.exceptions import ObjectDoesNotExist
 
 from examination_body.models import ExaminationBody
 
@@ -18,10 +19,16 @@ def create_examination_body(request):
             )
             return redirect("examination_body_app:view_all_examination_body")
         except Exception as e:
-            context = {"Error": "Error occured while saving examination body record"}
+            context = {"Error": f"Error occured while saving examination body record --> {e}"}
             return render(request, 'examination_body/create.html', context)
     else:
         return render(request, 'examination_body/create.html')
 
 def view_all_examination_body(request):
-    pass
+    try:
+        record = ExaminationBody.obejcts.all().order_by('-created_on')
+        context = {"record": record, "message": ""}
+        return render(request, "examination_body/view_all.html", context)
+    except ObjectDoesNotExist:
+        context = {"message": "Examination bodies do not exist"}
+        return render(request, "examination_body/view_all.html", context)
