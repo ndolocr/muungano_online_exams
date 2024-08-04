@@ -1,0 +1,11 @@
+<h1> Create Examination Body</h1>
+<form method="POST" action="{% url 'examination_body_app:create_examination_body' %}">
+    {% csrf_token %}
+    <label for="acronym" class="col-form-label">Acronym</label>
+    <input type="text" name="acronym", id="acronym" placeholder="Acronym">
+    
+    <label for="name" class="col-form-label">Name</label>
+    <input type="text" name="name", id="name" placeholder="Name">
+
+    <input type="submit" name="submit" value="Create">
+</form>
