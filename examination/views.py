@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
+from django.utils.text import slugify
 
 from examination.models import Examination
 # Create your views here.
@@ -19,3 +21,4 @@ def create_examination(request):
             return render(request, 'examination/create.html', context)
     else:
         return render(request, 'examination/create.html')
+
