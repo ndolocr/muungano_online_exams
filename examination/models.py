@@ -8,7 +8,7 @@ class Examination(models.Model):
     name = models.CharField(max_length=255, null = False, blank = False) # Kenya Certificate of Secondary Education
     acronym = models.CharField(max_length=255, null = False, blank = False) # KCSE
     
-    examination_body = models.ForeignKey(ExaminationBody, on_delete=models.CASCADE)
+    examination_body = models.ForeignKey(ExaminationBody, on_delete=models.CASCADE) #KNEC
 
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
