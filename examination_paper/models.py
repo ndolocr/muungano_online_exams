@@ -8,7 +8,7 @@ class ExaminationPaper(models.Model):
     year = models.IntegerField()
     exam_duration  = models.DurationField()
     slug = models.SlugField(max_length=255, null = True, blank = True)
-    name = models.CharField(max_length=255, null = False, blank = False)
+    name = models.CharField(max_length=255, null = False, blank = False) # Paper 1
     section = models.SlugField(max_length=255, null = True, blank = True)
     subject = models.SlugField(max_length=255, null = True, blank = True)
     
