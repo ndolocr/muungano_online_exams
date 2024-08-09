@@ -4,7 +4,6 @@ from django.db import models
 
 class Instruction(models.Model):
     instructions = models.TextField()
-    instruction_number = models.IntegerField()
     
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
