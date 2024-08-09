@@ -1,0 +1,10 @@
+<h1> Create Examination </h1>
+<form method="POST" action="{% url 'examination_app:create_examination_body' %}">
+    {% csrf_token %}    
+
+    <label for="instructions" class="col-form-label">Instructions</label>
+    <textarea name="instructions", id="instructions"></textarea>
+    <br><br>
+
+    <input type="submit" name="submit" value="Create">
+</form>
