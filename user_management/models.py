@@ -47,7 +47,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     password = models.CharField(max_length=255, default=False)
     last_name = models.CharField(max_length=255, default=False)
     first_name = models.CharField(max_length=255, default=False)
-    country_code = models.CharField(max_length=255, choices=country_code_choices, default=False)
+    country_code = models.CharField(max_length=255, default=False)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
