@@ -4,13 +4,14 @@ from examination. models import Examination
 from examination_paper import ExaminationPaper
 # Create your views here.
 
-def create_examination(request):
-    if request.method == "POST":
-        year = request.POST.get('year', '')
-        name = request.POST.get('name', '')
-        section = request.POST.get('section', '')
-        subject = request.POST.get('subject', '')
-        exam_duration = request.POST.get('exam_duration', '') 
+def create(request):
+    pass
+    # if request.method == "POST":
+    #     year = request.POST.get('year', '')
+    #     name = request.POST.get('name', '')
+    #     section = request.POST.get('section', '')
+    #     subject = request.POST.get('subject', '')
+    #     exam_duration = request.POST.get('exam_duration', '') 
         
     #     examination_body = ExaminationBody.objects.get(pk=ExaminationBody_id)
 
