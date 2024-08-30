@@ -5,8 +5,10 @@ from examination_paper import ExaminationPaper
 # Create your views here.
 
 def create(request):
-    pass
-    # if request.method == "POST":
+    if request.method == "POST":
+        pass
+    else:
+        return render(request, 'examination_paper/create.html')
     #     year = request.POST.get('year', '')
     #     name = request.POST.get('name', '')
     #     section = request.POST.get('section', '')
