@@ -3,11 +3,15 @@ from django.shortcuts import redirect
 from django.utils.text import slugify
 from django.core.exceptions import ObjectDoesNotExist
 
+from user_management.models import User
+
 from examination_body.models import ExaminationBody
+
 
 # Create your views here.
 def create_examination_body(request):
     if request.method == "POST":
+        user = request.user
         name = request.POST.get('name', '')
         acronym = request.POST.get('acronym', '')
 
@@ -15,7 +19,8 @@ def create_examination_body(request):
             record = ExaminationBody.objects.create(
                 name = name,
                 acronym = acronym,
-                slug = slugify(name)
+                slug = slugify(name),
+                created_by = user
             )
             return redirect("examination_body_app:view_all_examination_body")
         except Exception as e:
