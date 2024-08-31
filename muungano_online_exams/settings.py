@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'muungano_online_exams.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mysql.connector.django',
-        'NAME': 'worldcheck',
+        'NAME': 'exams_db',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST':'127.0.0.1',

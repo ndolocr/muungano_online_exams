@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/menu-styles.css' %}" rel="stylesheet" type="text/css" />
     <!-- Include CSS Files -->
 </head>
 <body>
@@ -15,7 +16,17 @@
         </nav>
 
         <div class="row">
-            <div class="col-2"> Menu</div>
+            <div class="col-2 menu">
+                <ul>
+                    <li> 
+                        <a href="">Examination Body</a> 
+                        <ul>
+                            <li> <a href="{% url 'examination_body_app:create_examination_body' %}">Create</a> </li>
+                            <li> <a href="">View All</a> </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
             <div class="col-10">{% block content%} {% endblock%}</div>
         </div>
         

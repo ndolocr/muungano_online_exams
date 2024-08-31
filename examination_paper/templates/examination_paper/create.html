@@ -1,53 +1,42 @@
 {% extends 'base.html' %}
+{% block content %}
 {% load static %}
-
-{% block content%}
 <div class="row">
-    <div class="col-12">
-        <div class="page-title-box">
-            <div class="page-title-right">
-                <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="">Examination</a></li>
-                    <li class="breadcrumb-item"><a href="">Paper</a></li>                    
-                    <li class="breadcrumb-item active">Create</li>
-                </ol>
+    <div class="row">
+        <div class="col-12"> 
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="">Examination</a></li>                        
+                        <li class="breadcrumb-item"><a href="">Exam Paper</a></li>                    
+                        <li class="breadcrumb-item active">Create</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Create Examination Paper</h4>
             </div>
-            <h4 class="page-title">Create Examination Paper</h4>
         </div>
     </div>
 </div>
 
 <div class="row">
-    <!-- BEGIN FORM COLUMN -->
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                {% if error_message %}
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert"> <strong>Error Message </strong> No Duplicates allowed. </div>
-                {% endif %}
-
+                
                 <form>
                     {% csrf_token %}
-
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label for="examination_body" class="col-form-label">Examination Body</label>
-                            <select id="examination_body" name="examination_body" required class="form-control" v-model="txt_status">
-                                <option value="none" selected disabled hidden>Examination Body</option>
-                                {% for val in examination_bodies %}
-                                    <option value="val.id">{{val.acronym}}</option>
-                                {% endfor %}
-                            </select>
+                            <label for="item" class="col-form-label">Item</label>
+                            <input type="text" required class="form-control" id="item" name="item"
+                                placeholder="Item" v-model="item">
+                                <p id="error-message"></p>
                         </div>
                     </div>
+                    
                 </form>
             </div>
         </div>
     </div>
-    <!-- END FORM COLUMN -->
-
 </div>
-
-
-
-{% endblock%}
+{% endblock %}

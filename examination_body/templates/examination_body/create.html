@@ -1,11 +1,42 @@
-<h1> Create Examination Body</h1>
-<form method="POST" action="{% url 'examination_body_app:create_examination_body' %}">
-    {% csrf_token %}
-    <label for="acronym" class="col-form-label">Acronym</label>
-    <input type="text" name="acronym", id="acronym" placeholder="Acronym">
-    
-    <label for="name" class="col-form-label">Name</label>
-    <input type="text" name="name", id="name" placeholder="Name">
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="row">
+    <div class="row">
+        <div class="col-12"> 
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="">Examination Body</a></li>                  
+                        <li class="breadcrumb-item active">Create</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Create Examination Body</h4>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <input type="submit" name="submit" value="Create">
-</form>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" action="{% url 'examination_body_app:create_examination_body' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="acronym" class="col-form-label">Acronym</label>
+                        <input type="text" required class="form-control" id="acronym" name="acronym" placeholder="acronym" v-model="acronym">
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="col-form-label">Name</label>
+                        <input type="text" required class="form-control" id="name" name="name" placeholder="name" v-model="name">
+                    </div>
+                    <br>
+                    <input type="submit" class="btn btn-primary" id="submit" name="submit" value="Save">
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
