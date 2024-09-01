@@ -10,19 +10,27 @@ def create(request):
     if request.method == "POST":
         name = request.POST.get('name', '')
         acronym = request.POST.get('acronym', '')
-        examination_body_id = request.POST.get('examination_body', '')
-        examination_body = ExaminationBody.objects.get(pk=ExaminationBody_id)
+        examination_body_id = request.POST.get('examination_body', '')        
 
         try:
-            record = Examination.objects.create(
+            examination_body = ExaminationBody.objects.get(pk=examination_body_id)
+
+            queryset = Examination.objects.create(
                 name = name,
                 acronym = acronym,
                 slug = slugify(name),
                 examination_body = examination_body
             )
-            return redirect("examination_app:view_all_examinations")            
+
+            logs = ExaminationLogs.objects.create(
+                action = "Create",
+                action_by = user,
+                examination = queryset,
+                values = f"Name - {name}, Acronym - {acronym}, Slug - {slugify(name)}"
+            )
+            return redirect("examination_app:view_all")            
         except Exception as e:
-            context = {"Error": "Error occured while saving examination body record"}
+            context = {"Error": "Error occured while saving examination record"}
             return render(request, 'examination/create.html', context)
     else:
         examination_body = ExaminationBody.objects.all().order_by('acronym')
