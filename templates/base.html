@@ -34,6 +34,14 @@
                             <li> <a href="{% url 'examination_app:view_all' %}">View All</a> </li>
                         </ul>
                     </li>
+
+                    <li> 
+                        <a href="">Examination Paper</a> 
+                        <ul>
+                            <li> <a href="{% url 'examination_app:create' %}">Create</a> </li>
+                            <li> <a href="{% url 'examination_app:view_all' %}">View All</a> </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <div class="col-10">{% block content%} {% endblock%}</div>
