@@ -1,6 +1,7 @@
 from django.db import models
 
 from user_management.models import User
+from examination.models import Examination
 from examination_body.models import ExaminationBody
 # Create your models here.
 
@@ -10,7 +11,7 @@ class ExaminationLogs(models.Model):
 
     values = models.TextField(null=False)
     action = models.CharField(max_length=255, null=False)    
-    examination = models.ForeignKey(ExaminationBody, on_delete=models.CASCADE, related_name="logs_on_examination")
+    examination = models.ForeignKey(Examination, on_delete=models.CASCADE, related_name="logs_on_examination")
     action_by = models.ForeignKey(User,on_delete=models.CASCADE,null=True, related_name="logs_on_examination_action_by")
     
     updated_on = models.DateTimeField(auto_now=True)    

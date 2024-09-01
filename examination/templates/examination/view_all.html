@@ -42,7 +42,7 @@
                                 <td> {{data.name}} </td>
                                 <td> {{data.examination_body.acronym}} </td>
                                 <td> {{data.slug}} </td>
-                                <td> <a href="{% url 'examination_body_app:update' data.id %}"> <i class="fa fa-pencil" aria-hidden="true"></i> </a> </td>               
+                                <td> <a href="{% url 'examination_app:update' data.id %}"> <i class="fa fa-pencil" aria-hidden="true"></i> </a> </td>               
                             </tr>
                         {% endfor %}
                     </tbody>
