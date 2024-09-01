@@ -4,6 +4,8 @@ from examination_body.models import ExaminationBody
 
 # Create your models here.
 class Examination(models.Model):
+    class Meta:
+        db_table = "examination"
     slug = models.SlugField(max_length=255, null = True, blank = True)
     name = models.CharField(max_length=255, null = False, blank = False) # Kenya Certificate of Secondary Education
     acronym = models.CharField(max_length=255, null = False, blank = False) # KCSE

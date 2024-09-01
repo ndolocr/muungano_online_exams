@@ -5,6 +5,8 @@ from question.models import Question
 # Create your models here.
 
 class MultipleChoice(models.Model):
+    class Meta:
+        db_table = "multiple_choices"
     answer = models.TextField()
     Choice = models.CharField(max_length=5, null = False, blank = False)
     

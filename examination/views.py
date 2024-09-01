@@ -6,7 +6,7 @@ from examination.models import Examination
 from examination_body.models import ExaminationBody
 # Create your views here.
 
-def create_examination(request):
+def create(request):
     if request.method == "POST":
         name = request.POST.get('name', '')
         acronym = request.POST.get('acronym', '')
@@ -29,7 +29,7 @@ def create_examination(request):
         context = {"examination_body": examination_body}
         return render(request, 'examination/create.html', context)
 
-def view_all_examinations(request):
+def view_all(request):
     try:
         record = Examination.objects.all().order_by('-created_on')
         context = {"record": record, "message": ""}

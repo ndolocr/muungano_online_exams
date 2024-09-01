@@ -5,6 +5,8 @@ from instructions.models import Instruction
 
 # Create your models here.
 class ExaminationPaper(models.Model):
+    class Meta:
+        db_table = "examination_paper"
     year = models.IntegerField()
     exam_duration  = models.DurationField()
     slug = models.SlugField(max_length=255, null = True, blank = True)

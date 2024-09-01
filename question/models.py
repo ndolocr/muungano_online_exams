@@ -9,6 +9,8 @@ from examination_paper.models import ExaminationPaper
 # Create your models here.
 
 class Question(models.Model):
+    class Meta:
+        db_table = "question"
     question = models.TextField()
     marks = models.IntegerField()
     question_number = models.IntegerField()
