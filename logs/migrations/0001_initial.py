@@ -12,15 +12,16 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Tag',
+            name='ExaminationBodyLogs',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255, unique=True)),
+                ('values', models.TextField()),
+                ('action', models.CharField(max_length=255)),
                 ('updated_on', models.DateTimeField(auto_now=True)),
                 ('created_on', models.DateTimeField(auto_now_add=True)),
             ],
             options={
-                'db_table': 'tags',
+                'db_table': 'examination_body_logs',
             },
         ),
     ]

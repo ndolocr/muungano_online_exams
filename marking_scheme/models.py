@@ -3,6 +3,8 @@ from question.models import Question
 # Create your models here.
 
 class MarkingScheme(models.Model):
+    class Meta:
+        db_table = "marking_scheme"
     correct_answer = models.TextField()
 
     question = models.ForeignKey(Question, on_delete=models.CASCADE, null=False, blank=False)

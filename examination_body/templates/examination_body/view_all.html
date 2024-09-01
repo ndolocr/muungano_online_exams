@@ -1,19 +1,53 @@
-<table style="border: solid 1px #eeeeee;">
-    <thead style="background: #eeeeee;">
-        <tr>
-            <th style="padding: 10px;"> # </th>
-            <th style="padding: 10px;"> Acronym </th>
-            <th style="padding: 10px;"> Name </th>            
-        </tr>
-    </thead>
-    <tbody>
-    </tbody>
-        {% for data in record %}
-            <tr style="border: solid 1px #eeeeee;">
-                <td> {{forloop.counter}} </td>
-                <td> {{data.acronym}} </td>
-                <td> {{data.name}} </td>                
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="row">
+    <div class="row">
+        <div class="col-12"> 
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="">Examination Body</a></li>                  
+                        <li class="breadcrumb-item active">View All</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Examination Bodies</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th> # </th>
+                            <th> Acronym </th>
+                            <th> Name </th>
+                            <th> Slug </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                        {% for data in record %}
+                            <tr>
+                                <td> {{forloop.counter}} </td>
+                                <td> {{data.acronym}} </td>
+                                <td> {{data.name}} </td>
+                                <td> {{data.slug}} </td> 
+                                <td> <a href="{% url 'examination_body_app:update' data.id %}"> <i class="fa fa-pencil" aria-hidden="true"></i> </a> </td>               
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

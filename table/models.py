@@ -2,6 +2,8 @@ from django.db import models
 
 # Create your models here.
 class Table(models.Model):
+    class Meta:
+        db_table = "table"
     table_name = models.CharField(max_length=255, null = False, blank = False)
     no_of_rows = models.CharField(max_length=255, null = False, blank = False)
     no_of_columns = models.CharField(max_length=255, null = False, blank = False)

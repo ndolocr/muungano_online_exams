@@ -5,6 +5,8 @@ from examination_body import views
 app_name = "examination_body_app"
 
 urlpatterns = [
-    path('create', views.create_examination_body, name='create_examination_body'),
-    path('view/all', views.view_all_examination_body, name='view_all_examination_body')
+    path('create', views.create, name='create'),
+    path('view/all', views.view_all, name='view_all'),
+    path('update/<int:pk>', views.update, name='update'),
+    path('update/post', views.update_post, name='update_post'),
 ]

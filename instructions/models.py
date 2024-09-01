@@ -3,6 +3,8 @@ from django.db import models
 # Create your models here.
 
 class Instruction(models.Model):
+    class Meta:
+        db_table = "instruction"
     instructions = models.TextField()
     
     updated_on = models.DateTimeField(auto_now=True)
