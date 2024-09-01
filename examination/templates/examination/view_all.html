@@ -28,7 +28,8 @@
                             <th> # </th>
                             <th> Acronym </th>
                             <th> Name </th>
-                            <th> Slug </th>
+                            <th> Exam Body </th>
+                            <th> Slug </th>                            
                             <th></th>
                         </tr>
                     </thead>
@@ -39,7 +40,8 @@
                                 <td> {{forloop.counter}} </td>
                                 <td> {{data.acronym}} </td>
                                 <td> {{data.name}} </td>
-                                <td> {{data.slug}} </td> 
+                                <td> {{data.examination_body.acronym}} </td>
+                                <td> {{data.slug}} </td>
                                 <td> <a href="{% url 'examination_body_app:update' data.id %}"> <i class="fa fa-pencil" aria-hidden="true"></i> </a> </td>               
                             </tr>
                         {% endfor %}

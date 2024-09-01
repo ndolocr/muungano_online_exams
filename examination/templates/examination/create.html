@@ -31,7 +31,7 @@
                     <strong>Success! </strong> {{success}}
                 </div> 
                 {% endif %} 
-                <form method="POST" action="{% url 'examination_body_app:create' %}">
+                <form method="POST" action="{% url 'examination_app:create' %}">
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="examination_body" class="col-form-label">Examination Body</label>
