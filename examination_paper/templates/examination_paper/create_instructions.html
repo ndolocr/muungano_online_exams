@@ -13,7 +13,7 @@
                         <li class="breadcrumb-item active">Create</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Create Instructions</h4>
+                
             </div>
         </div>
     </div>
@@ -28,10 +28,19 @@
                     <strong>ERROR! </strong> {{error}}
                 </div> 
                 {% endif %}
-                <form method="POST" action="{% url 'examination_paper_app:create' %}">
+                <div class="row" style="text-align: center;">
+                    <div class="col-12" ><h1>{{exam_paper.examination.examination_body.name}}</h1></div>
+                    <div class="col-12" ><h1>{{exam_paper.examination.name}}</h1></div>
+                    <div class="col-12" ><h1>{{exam_paper.subject}}</h1></div>
+                    <div class="col-12" ><h1>{{exam_paper.name}} {{exam_paper.year}}</h1></div>
+                    <div class="col-12" ><h3>{{exam_paper.exam_duration}} Minutes</h3></div>
+                </div>
+
+                <div class="row"> <div class="col-12" ><h4 class="page-title">Create Instructions</h4></div> </div>
+                <form method="POST" action="{% url 'examination_paper_app:create_instructions_post' %}">
                     {% csrf_token %}
                     <textarea id="instructions" name="instructions"></textarea>
-
+                    <input type="text" value="{{exam_paper.pk}}" required class="form-control" id="exam_paper" name="exam_paper">
                     <br>
                     <input type="submit" class="btn btn-primary" id="submit" name="submit" value="Next">
                     
