@@ -19,14 +19,15 @@ def create(request):
         print(f"Subject --> {subject}")
         print(f"Examination --> {examination}")
         print(f"Exam Duration --> {exam_duration}")
-                
+        
         try:
             examination_queryset = Examination.objects.get(pk=examination)
+            slug_field = f"{examination_queryset.acronym} {year} {subject} {name}"
             queryset = ExaminationPaper.objects.create(
                 name = name,
                 year = year,                
                 subject = subject,
-                slug = slugify(name),
+                slug = slugify(slug_field),
                 exam_duration = exam_duration,
                 examination = examination_queryset,
             )
