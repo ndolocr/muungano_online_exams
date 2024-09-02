@@ -7,15 +7,15 @@ from instructions.models import Instruction
 class ExaminationPaper(models.Model):
     class Meta:
         db_table = "examination_paper"
-    year = models.IntegerField()
-    exam_duration  = models.DurationField()
+    year = models.IntegerField()    
     slug = models.SlugField(max_length=255, null = True, blank = True)
     name = models.CharField(max_length=255, null = False, blank = False) # Paper 1
-    section = models.SlugField(max_length=255, null = True, blank = True)
+    # section = models.SlugField(max_length=255, null = True, blank = True)
     subject = models.SlugField(max_length=255, null = True, blank = True)
+    exam_duration  = models.CharField(max_length=255, null = True, blank = True)
     
-    examination = models.ForeignKey(Examination, on_delete=models.CASCADE)
-    instructions = models.ForeignKey(Instruction, on_delete=models.CASCADE)
+    examination = models.ForeignKey(Examination, on_delete=models.CASCADE, null=False)
+    instructions = models.ForeignKey(Instruction, on_delete=models.CASCADE, null=True)
     
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)

@@ -6,4 +6,5 @@ app_name = "examination_paper_app"
 
 urlpatterns = [
     path('create', views.create, name='create'),
+    path('create/insturctions/<int:pk>', views.create_instructions, name='create_instructions'),
 ]
