@@ -22,17 +22,63 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                
-                <form>
+                {% if error %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR! </strong> {{error}}
+                </div> 
+                {% endif %}
+                <form method="POST" action="{% url 'examination_paper_app:create' %}">
                     {% csrf_token %}
+                    <div class="form-group">
+                        <label for="examination" class="col-form-label">Examination</label>
+                        <select id="examination" name="examination" class="form-control ">
+                            <option value="none" selected disabled hidden>
+                                Examination
+                            </option>
+                            {% for val in examination %}    
+                                <option value={{val.id}}>{{val}}</option>                                
+                            {% endfor %} 
+                        </select>
+                    </div>
+
                     <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label for="item" class="col-form-label">Item</label>
-                            <input type="text" required class="form-control" id="item" name="item"
-                                placeholder="Item" v-model="item">
+                        <div class="form-group">
+                            <label for="year" class="col-form-label">Year</label>
+                            <input type="text" required class="form-control" id="year" name="year"
+                                placeholder="Examination Year" v-model="year">
                                 <p id="error-message"></p>
                         </div>
                     </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="subject" class="col-form-label">Subject</label>
+                            <input type="text" required class="form-control" id="subject" name="subject"
+                                placeholder="Subject" v-model="subject">
+                                <p id="error-message"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name" class="col-form-label">Examination Name</label>
+                            <input type="text" required class="form-control" id="name" name="name"
+                                placeholder="Examination Name" v-model="name">
+                                <p id="error-message"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="exam_duration" class="col-form-label">Examination Duration (In Minutes)</label>
+                            <input type="text" required class="form-control" id="exam_duration" name="exam_duration"
+                                placeholder="Examination Duration" v-model="exam_duration">
+                                <p id="error-message"></p>
+                        </div>
+                    </div>
+
+                    <br>
+                    <input type="submit" class="btn btn-primary" id="submit" name="submit" value="Next">
                     
                 </form>
             </div>

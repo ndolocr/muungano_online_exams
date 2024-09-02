@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="row">
+    <div class="row">
+        <div class="col-12"> 
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="">Examination</a></li>                        
+                        <li class="breadcrumb-item"><a href="">Exam Paper</a></li>
+                        <li class="breadcrumb-item"><a href="">Instructions</a></li>                    
+                        <li class="breadcrumb-item active">Create</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Create Instructions</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                {% if error %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>ERROR! </strong> {{error}}
+                </div> 
+                {% endif %}
+                <form method="POST" action="{% url 'examination_paper_app:create' %}">
+                    {% csrf_token %}
+                    
+
+                    <br>
+                    <input type="submit" class="btn btn-primary" id="submit" name="submit" value="Next">
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
