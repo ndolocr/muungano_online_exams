@@ -1,12 +1,14 @@
 from django.db import models
 
 from ckeditor.fields import RichTextField
+from examination_paper.models import ExaminationPaper
 # Create your models here.
 
 class Instruction(models.Model):
     class Meta:
         db_table = "instruction"
     instructions = RichTextField()
+    examination_paper = models.OneToOneField(ExaminationPaper, on_delete=models.CASCADE, null=True)
     
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)

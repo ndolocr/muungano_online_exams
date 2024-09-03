@@ -3,6 +3,7 @@ from django.shortcuts import redirect
 from django.utils.text import slugify
 
 from examination.models import Examination
+from instructions.models import Instruction
 from examination_paper.models import ExaminationPaper
 # Create your views here.
 
@@ -49,8 +50,27 @@ def create(request):
         return render(request, 'examination_paper/create.html', context)
 
 def create_instructions(request, pk):
-    if request.method == "POST":
-        pass
-    else:
-        context = {}
+    if request.method == "GET":
+        exam_paper = ExaminationPaper.objects.get(pk=pk)
+        context = {
+            "exam_paper": exam_paper,
+        }
         return render(request, 'examination_paper/create_instructions.html', context)
+
+def create_instructions_post(request):
+    if request.method == "POST":
+        exam_paper = request.POST.get('exam_paper', '')
+        instructions = request.POST.get('instructions', '')  
+
+        try:
+            exam_paper_queryset = ExaminationPaper.objects.get(pk=exam_paper)
+            queryset = Instruction.objects.create(instructions = instructions, examination_paper = exam_paper_queryset)
+            # proceed to add Questions
+        except Exception as e:
+            message = f"Error occured while saving Instructions --> {str(e)}"
+            exam_paper = ExaminationPaper.objects.get(pk=pk)
+            context = {
+                "error": message,
+                "exam_paper": exam_paper,
+            }
+            return render(request, 'examination_paper/create_instructions.html', context)
