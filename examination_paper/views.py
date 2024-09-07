@@ -92,7 +92,7 @@ def view_single(request, pk):
             "message": "",
             "record": record
         }
-        return render(request, "examination_paper/view_all.html", context)
+        return render(request, "examination_paper/view_single.html", context)
     except ObjectDoesNotExist:
         context = {"error": "Examination Paper do not exist"}
         return render(request, "examination_paper/view_all.html", context)
