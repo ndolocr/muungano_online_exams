@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.utils.text import slugify
+from django.core.exceptions import ObjectDoesNotExist
 
 from examination.models import Examination
 from instructions.models import Instruction
@@ -82,4 +83,16 @@ def view_all(request):
         return render(request, "examination_paper/view_all.html", context)
     except ObjectDoesNotExist:
         context = {"error": "Examination Papers do not exist"}
+        return render(request, "examination_paper/view_all.html", context)
+
+def view_single(request, pk):
+    try:
+        record = ExaminationPaper.objects.get(pk=pk)
+        context = {
+            "message": "",
+            "record": record
+        }
+        return render(request, "examination_paper/view_all.html", context)
+    except ObjectDoesNotExist:
+        context = {"error": "Examination Paper do not exist"}
         return render(request, "examination_paper/view_all.html", context)
