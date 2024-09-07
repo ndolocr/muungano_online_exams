@@ -74,3 +74,12 @@ def create_instructions_post(request):
                 "exam_paper": exam_paper,
             }
             return render(request, 'examination_paper/create_instructions.html', context)
+
+def view_all(request):
+    try:
+        record = ExaminationPaper.objects.all().order_by('-created_on')
+        context = {"record": record, "message": ""}
+        return render(request, "examination_body/view_all.html", context)
+    except ObjectDoesNotExist:
+        context = {"error": "Examination Papers do not exist"}
+        return render(request, "examination_body/view_all.html", context)
