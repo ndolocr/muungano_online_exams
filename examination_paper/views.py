@@ -79,7 +79,7 @@ def view_all(request):
     try:
         record = ExaminationPaper.objects.all().order_by('-created_on')
         context = {"record": record, "message": ""}
-        return render(request, "examination_body/view_all.html", context)
+        return render(request, "examination_paper/view_all.html", context)
     except ObjectDoesNotExist:
         context = {"error": "Examination Papers do not exist"}
-        return render(request, "examination_body/view_all.html", context)
+        return render(request, "examination_paper/view_all.html", context)
