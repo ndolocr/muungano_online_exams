@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="row">
+    <div class="row">
+        <div class="col-12"> 
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="">Examination Body</a></li>                  
+                        <li class="breadcrumb-item active">View All</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Examination Bodies</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th> # </th>
+                            <th> Examination </th>
+                            <th> Subject </th>
+                            <th> Name </th>
+                            <th> Year </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                        {% for data in record %}
+                            <tr>
+                                <td> {{forloop.counter}} </td>
+                                <td> {{data.examination}} </td>
+                                <td> {{data.subject}} </td>
+                                <td> {{data.name}} </td>
+                                <td> {{data.year}} </td> 
+                                <td> <a href="{% url 'examination_body_app:update' data.id %}"> <i class="fa fa-folder-open-o" aria-hidden="true"></i> </a> </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
